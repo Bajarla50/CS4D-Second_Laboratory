@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Coding Environment Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>USTeP Adaptive Coding Prototype</h1>
+    <div>
+        <label for="profileSelect"><strong>Select User Profile:</strong></label>
+        <select id="profileSelect" onchange="switchProfile()">
+            <option value="beginner">Profile A: Beginner (High Guidance, Auto-Format)</option>
+            <option value="advanced">Profile B: Advanced (Minimalist, High AI)</option>
+        </select>
+    </div>
+</header>
+
+<div class="container">
+    <div class="panel">
+        <h3>Code Editor</h3>
+        <textarea id="codeEditor" placeholder="Type your code here..."></textarea>
+        <br><br>
+        <button onclick="runCode()">Run / Process Code</button>
+        <div id="output" style="margin-top: 15px; font-family: monospace; font-size: 13px; background: #eee; padding: 10px; border-radius: 4px;"></div>
+    </div>
+
+    <div class="panel">
+        <h3>System Adaptations & Assistance</h3>
+        
+        <!-- Beginner Hint Panel -->
+        <div id="hintPanel" class="hint-box">
+            <strong>💡 Beginner Coding Guidance:</strong><br>
+            Remember to end your statements with semicolons and check your variable declarations!
+        </div>
+
+        <!-- AI Assistant Panel -->
+        <div id="aiPanel" class="ai-box hidden">
+            <strong>🤖 AI Assistant:</strong><br>
+            <input type="text" id="aiPrompt" placeholder="Ask AI to refactor or fix..." style="width: 80%; padding: 5px; margin-top: 5px;">
+            <button onclick="triggerAI()" style="padding: 5px 10px; margin-top: 5px;">Ask AI</button>
+            <div id="aiResponse" style="margin-top: 5px; font-size: 12px; color: #333;"></div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <h4>Active Model Attributes:</h4>
+            <ul id="modelAttributes" style="font-size: 13px; padding-left: 20px;">
+                <li>Experience: Beginner</li>
+                <li>Formatting: High (Auto-format enabled)</li>
+                <li>AI Assistance: Low</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
